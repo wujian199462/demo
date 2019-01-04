@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+
+    <script src="../../js/vue/vue-resource.min.js"></script>
+    <link rel="stylesheet" href="../../css/home/home.css">
+</head>
+<body>
+    <div id="left">
+        <el-row>
+               <el-col :span="24" class="left_col">
+                   <i class="el-icon-star-off left_icon" @click="echart"></i>
+               </el-col>
+               <el-col :span="24" class="left_col">
+                   <i class="el-icon-star-off left_icon" @click="chat"></i>
+               </el-col>
+               <el-col :span="24" class="left_col">
+                   <i class="el-icon-star-off left_icon"></i>
+               </el-col>
+           </el-row>
+    </div>
+</body>
+<!--顺序很重要-->
+<script src="../../js/home/echarts.js"></script>
+<script src="../../js/vue/vue.min.js"></script>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="../../js/vue/vue-resource.min.js"></script>
+<script src="../../js/vue/vue-router.js"></script>
+<script src="../../js/home/jQuery.js"></script>
+
+<script>
+    var vm =new Vue({
+        el:'#left',
+        data:{
+
+        },
+        methods:{
+            echart:function () {
+              alert(11);
+            },
+        }
+    })
+</script>
+</html>

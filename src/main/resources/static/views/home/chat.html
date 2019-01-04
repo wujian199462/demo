@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+
+    <script src="../../js/vue/vue-resource.min.js"></script>
+    <link rel="stylesheet" href="../../css/home/home.css">
+</head>
+<body>
+<div id="chat" style="height: 96%;width: 96%;position: absolute;border: solid;">
+    <el-row style="height: 100%">
+        <el-col v-html="allUser" :span="6" style="border: solid;height: 100%;width: 24%;">
+            {{allUser}}
+        </el-col>
+        <el-col :span="18" style="border: solid;height: 100%;">
+           <div style="    border: solid;position: fixed;top: 10px;height: 10%; width: 70%;">
+               {{head}}
+           </div>
+            <div style="border: solid;position: absolute;top: 11%;height: 79%;width: 73%;">
+                <div id="chatInfo" v-html="messageBox" style="background: #f0f5ff;height: 100%;width: 100%;overflow-y:scroll">
+                        {{messageBox}}
+                </div>
+            </div>
+            <div style="border: solid;position: fixed;bottom: 7px;height: 8%;width: 70%;">
+                <el-row>
+                    <el-col :span="16"><el-input v-model="message" placeholder="请输入内容"></el-input></el-col>
+                    <el-col :span="4"><el-button type="info" plain @click="sendMessage">发送</el-button></el-col>
+                    <el-col :span="4"></el-col>
+                </el-row>
+            </div>
+        </el-col>
+    </el-row>
+</div>
+</body>
+<!--顺序很重要-->
+<script src="../../js/home/echarts.js"></script>
+<script src="../../js/vue/vue.min.js"></script>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="../../js/vue/vue-resource.min.js"></script>
+<script src="../../js/vue/vue-router.js"></script>
+<script src="../../js/home/jQuery.js"></script>
+<script src="../../js/chat/chat.js"></script>
+
+</html>

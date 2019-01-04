@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Fullscreen Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- 引入样式  element-ui-->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" th:href="@{/static/css/login.css}">
+
+</head>
+<body>
+<div id="index" class="">
+    <h1 style="text-align: center;margin-top: 100px">{{title}}</h1>
+    <el-from style="text-align: center;" v-if="loginDo">
+        <el-from :model="userObj"  ref="userObj">
+            <el-row :gutter="1">
+                <el-col :span="21">
+                    <el-input style="width: 200px" v-model.trim="userObj.userName" placeholder="请输入用户名" prop="userName"></el-input>
+                </el-col>
+                <el-col :span="3">
+                    <el-button type="text" style="font-size: 10px;color: #03a9f4" @click="register">注册账号</el-button>
+                </el-col>
+            </el-row>
+            <el-row :gutter="1" style="top:30px">
+                <el-col :span="21">
+                    <el-input type="password" style="width: 200px;" v-model.trim="userObj.password" placeholder="请输入密码"></el-input>
+                </el-col>
+                <el-col :span="3">
+                    <el-button type="text" style="font-size: 10px;color: #03a9f4">忘记密码</el-button>
+                </el-col>
+            </el-row>
+        </el-from>
+        <el-row style="text-align: center;margin-top: 55px">
+            <el-from>
+                <el-button @click="login()" type="primary" style="width:150px">登录</el-button>
+            </el-from>
+        </el-row>
+    </el-from>
+    <el-from style="text-align: center;" v-if="regist">
+        <el-from :model="userObj"  ref="userObj">
+            <el-row :gutter="1">
+                <el-col :span="24">
+                    <el-input style="width: 200px" v-model.trim="userObj.userName" placeholder="请输入用户名" prop="userName"></el-input>
+                </el-col>
+            </el-row>
+            <el-row :gutter="1" style="top:30px">
+                <el-col :span="24">
+                    <el-input  type="password"style="width: 200px;" v-model.trim="userObj.password" placeholder="请输入密码"></el-input>
+                </el-col>
+            </el-row>
+            <el-row :gutter="1" style="top:60px">
+                <el-col :span="24">
+                    <el-input  type="password" style="width: 200px;" v-model.trim="rePassword" placeholder="请确认密码"></el-input>
+                </el-col>
+            </el-row>
+        </el-from>
+        <el-row style="text-align: center;margin-top: 85px">
+            <el-from>
+                <el-button @click="registUser" type="primary" style="width:100px">注册</el-button>
+                <el-button @click="back" type="primary" style="width:100px">登陆</el-button>
+            </el-from>
+        </el-row>
+    </el-from>
+</div>
+</body>
+<!--<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>-->
+<script src="../static/js/vue/vue.min.js"></script>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
+<script src="../static/js/login/login.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+<script language="javascript">
+    if(top.location!==self.location){
+        top.location.href=self.location.href;
+    }
+</script>
+</html>
+
