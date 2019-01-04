@@ -31,7 +31,7 @@ public class TestRestFul {
         System.out.println("!1111");
         System.out.println(a);
         Map<String,Object> map = new HashMap<String,Object>();
-        byte[] msg = RSA.RSAEcode("岑永威你是猪吗?");
+        byte[] msg = RSA.RSAEcode("岑永威你是猪 吗?");
         map.put("rsaPublicKey", RSA.getPUBLICKEY());
         map.put("msg", msg);
         JSONObject jsonString = JSONObject.fromObject(map);
