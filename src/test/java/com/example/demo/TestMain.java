@@ -23,10 +23,37 @@ import static com.example.demo.util.security.RSA.RSA.RSAEcode;
 public class TestMain
 {
     public static  void main(String[] args) throws Exception {
-      byte[] sMsg =  RSAEcode("你在干嘛");
+    /*  byte[] sMsg =  RSAEcode("你在干嘛");
       System.out.println("密文："+Base64.encodeBase64String(sMsg));
       byte[] mMsg = RSADecode(sMsg,RSA.getPUBLICKEY());
-      System.out.println("明文："+new String(mMsg));
+      System.out.println("明文："+new String(mMsg));*/
+    String a = "private String planname;\n" +
+            "\n" +
+            "private String planlicid;\n" +
+            "\n" +
+            "private String portfolioid;\n" +
+            "\n" +
+            "private String portfolioname;\n" +
+            "\n" +
+            "private String assettype;\n" +
+            "\n" +
+            "private String begdate;\n" +
+            "\n" +
+            "private String enddate;\n" +
+            "\n" +
+            "private String returnQ;\n" +
+            "\n" +
+            "private String contribute;\n" +
+            "\n" +
+            "private String weight;\n" +
+            "\n" +
+            "private String returnY;\n" +
+            "\n" +
+            "private String contributeY;\n" +
+            "\n" +
+            "private String weightY;\n" +
+            "private String checkmeno;";
+        getSt(a);
     }
 
     public static String operDate(String str,int day){

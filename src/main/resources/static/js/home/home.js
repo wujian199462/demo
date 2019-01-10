@@ -4,7 +4,13 @@ var vm =new Vue({
 
     },
     methods:{
-        echart:function () {
+        handleOpen(key, keyPath) {
+            console.log(key, keyPath);
+        },
+        handleClose(key, keyPath) {
+            console.log(key, keyPath);
+        },
+        Echart:function () {
             var iframe=document.getElementById("left");
             iframe.src="right.html";
         },
@@ -20,7 +26,7 @@ var vm =new Vue({
                     message: res.body.message,
                 });
             });
-        }
+        },
     },
 
 })

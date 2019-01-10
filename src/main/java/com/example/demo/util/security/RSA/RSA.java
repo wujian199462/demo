@@ -39,7 +39,7 @@ public  class RSA {
             e.printStackTrace();
         }
         PUBLICKEY = rsaPublicKey;
-        PRIVATEKEY =rsaPrivateKey;
+        PRIVATEKEY = rsaPrivateKey;
     }
 
     //私钥加密
