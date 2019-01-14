@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>peopleExcel</title>
+    <!-- 引入样式  element-ui-->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href=" http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+
+</head>
+<body>
+<div id="peopleExcle" style="background-color: #fff;height: 100%;width: 100%;position: absolute">
+    <el-row>
+        <el-col>
+            <h1 style="text-align: center">职工资料统计表</h1>
+        </el-col>
+    </el-row>
+    <el-row>
+        <el-col :span="20">
+            <el-button type="primary">下载</el-button>
+            <el-button type="primary">导入</el-button>
+        </el-col>
+        <el-col :span="4">
+        </el-col>
+    </el-row>
+    <table id="tables" class="display" cellspacing="0" width="100%" style="background-color:#A9A9A9">
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>001</td><td>name1</td><td>2323</td>
+        </tr>
+        <tr>
+            <td>002</td><td>name2</td><td>4612</td>
+        </tr>
+        <tr>
+            <td>003</td><td>name3</td><td>4612</td>
+        </tr>
+        <tr>
+            <td>004</td><td>name4</td><td>4612</td>
+        </tr>
+        <tr>
+            <td>005</td><td>name5</td><td>4612</td>
+        </tr>
+        <tr>
+            <td>006</td><td>name6</td><td>4612</td>
+        </tr>
+        <tr>
+            <td>007</td><td>name7</td><td>4612</td>
+        </tr>
+        <tr>
+            <td>008</td><td>name8</td><td>4612</td>
+        </tr>
+        <tr>
+            <td>009</td><td>name9</td><td>4612</td>
+        </tr>
+        <tr>
+            <td>010</td><td>name10</td><td>4612</td>
+        </tr>
+        <tr>
+            <td>011</td><td>name11</td><td>4612</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+<!--顺序很重要-->
+<script src="../../../js/vue/vue.min.js"></script>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="../../../js/vue/vue-resource.min.js"></script>
+<script src="../../../js/vue/vue-router.js"></script>
+<script src="../../../js/home/jQuery.js"></script>
+<script src="http://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script>
+    var vmpeopleExcle = new Vue({
+        el:'#peopleExcle',
+        data:{},
+        methods:{
+            init:function () {
+                $('#tables').DataTable({
+                    ajax:'',
+                    "lengthMenu": [[2, 4, 6, -1], [2, 4, 6, "All"]],
+                    dom:'<"top"f>rt<"bottom"lp><"clear">',
+                    stateSave: true,//当你刷新页面的时候会保存你上次选择的分页信息，但是只会保留两个小时。可以设置
+                    pagingType: "full_numbers",//会显示首页上一页数子下一页和尾页
+                    scrollY: 200,
+                    scrollCollapse: true,
+                    jQueryUI: true,
+                    paging: "false",
+                    language: {
+                        lengthMenu: "每页 _MENU_ 条记录",
+                        zeroRecords: "没有找到记录",
+                        info: "第 _PAGE_ 页 ( 总共 _PAGES_ 页 )",
+                        infoEmpty: "无记录",
+                        infoFiltered: "(从 _MAX_ 条记录过滤)",
+                        oPaginate: {
+                            "sFirst": "首页",
+                            "sPrevious": "上页",
+                            "sNext": "下页",
+                            "sLast": "末页"
+                        },
+                    },
+
+                    columns: [
+                        {data:"firstname"},
+                        {data:"lastname"},
+                        {data:"phone"}
+                    ]
+                });
+            }
+        }
+
+    })
+    vmpeopleExcle.init();
+</script>
+
+</html>

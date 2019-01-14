@@ -18,6 +18,10 @@ var vm =new Vue({
             var iframe=document.getElementById("left");
             iframe.src="chat.html";
         },
+        peopleExcle:function () {
+            var iframe=document.getElementById("left");
+            iframe.src="../../views/people/peopleExcle/peopleExcle.html";
+        },
         download:function () {
             var tableName = JSON.stringify("USER");
             this.$http.post('/download',tableName).then(function (res) {
