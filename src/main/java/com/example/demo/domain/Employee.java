@@ -1,8 +1,12 @@
 package com.example.demo.domain;
 
-import java.util.Date;
+import org.springframework.format.annotation.DateTimeFormat;
 
-public class Employee {
+import java.io.Serializable;
+import java.sql.Date;
+
+
+public class Employee implements Serializable {
     private String id;
 
     private String name;
@@ -12,7 +16,7 @@ public class Employee {
     private String sex;
 
     private String adress;
-
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date birthday;
 
     private Long salary;

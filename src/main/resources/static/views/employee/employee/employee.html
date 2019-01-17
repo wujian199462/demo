@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>peopleExcel</title>
+    <!-- 引入样式  element-ui-->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href=" http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+
+
+</head>
+<body>
+<div id="employee" style="background-color: #fff;height: 100%;width: 100%;position: absolute">
+    <div style="margin-left: 15px;margin-right: 15px">
+        <el-row>
+            <el-col>
+                <h1 style="text-align: center">职工资料统计表</h1>
+                <hr/>
+            </el-col>
+        </el-row>
+        <el-row>
+            <el-col>
+                <el-button id="button"type="primary" size="small" icon="el-icon-download">下载</el-button>
+                <el-button type="primary" size="small" icon="el-icon-upload2">导入</el-button>
+                <el-button type="primary" size="small" icon="el-icon-delete"></el-button>
+            </el-col>
+            <el-col :span="4">
+            </el-col>
+            <el-col>
+                <table id="tables" class="display" cellspacing="0" width="100%" style="background-color:#A9A9A9;text-align: center">
+                    <thead>
+                    <tr>
+                        <th>姓名</th>
+                        <th>年龄</th>
+                        <th>性别</th>
+                        <th>地址</th>
+                        <th>出生日期</th>
+                        <th>工资</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </el-col>
+        </el-row>
+    </div>
+</div>
+</body>
+<!--顺序很重要-->
+<script src="../../../js/vue/vue.min.js"></script>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="../../../js/vue/vue-resource.min.js"></script>
+<script src="../../../js/vue/vue-router.js"></script>
+<script src="../../../js/home/jQuery.js"></script>
+<script src="http://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="../../../js/employee/employee.js"></script>
+<script>
+
+</script>
+
+</html>

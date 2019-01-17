@@ -114,4 +114,7 @@
       salary = #{salary,jdbcType=DECIMAL}
     where id = #{id,jdbcType=VARCHAR}
   </update>
+  <select id="selectAll" resultMap="BaseResultMap">
+      select * from employee
+  </select>
 </mapper>

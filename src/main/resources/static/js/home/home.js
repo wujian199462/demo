@@ -20,7 +20,7 @@ var vm =new Vue({
         },
         peopleExcle:function () {
             var iframe=document.getElementById("left");
-            iframe.src="../../views/people/peopleExcle/peopleExcle.html";
+            iframe.src="../../views/employee/employee/employee.html";
         },
         download:function () {
             var tableName = JSON.stringify("USER");
