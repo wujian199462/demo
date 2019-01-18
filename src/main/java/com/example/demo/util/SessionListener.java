@@ -10,14 +10,14 @@ import java.util.HashSet;
 
 @WebListener
 public class SessionListener implements HttpSessionListener, HttpSessionAttributeListener {
-    public static final Logger logger= LoggerFactory.getLogger(SessionListener.class);
+    public static final Logger logger = LoggerFactory.getLogger(SessionListener.class);
 
     @Override
-    public void  attributeAdded(HttpSessionBindingEvent httpSessionBindingEvent) {
+    public void attributeAdded(HttpSessionBindingEvent httpSessionBindingEvent) {
         logger.info("--attributeAdded--");
-        HttpSession session=httpSessionBindingEvent.getSession();
-        logger.info("key----:"+httpSessionBindingEvent.getName());
-        logger.info("value---:"+httpSessionBindingEvent.getValue());
+        HttpSession session = httpSessionBindingEvent.getSession();
+        logger.info("key----:" + httpSessionBindingEvent.getName());
+        logger.info("value---:" + httpSessionBindingEvent.getValue());
 
     }
 
@@ -52,7 +52,7 @@ public class SessionListener implements HttpSessionListener, HttpSessionAttribut
     public void sessionDestroyed(HttpSessionEvent event) throws ClassCastException {
         logger.info("---sessionDestroyed----");
         HttpSession session = event.getSession();
-        logger.info("deletedSessionId: "+session.getId());
+        logger.info("deletedSessionId: " + session.getId());
         System.out.println(session.getCreationTime());
         System.out.println(session.getLastAccessedTime());
         ServletContext application = session.getServletContext();

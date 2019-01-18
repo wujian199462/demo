@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-   <mapper namespace="com.example.demo.dao.DicDao">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.DicDao">
 
-    <resultMap id="BaseResultMap" type="com.example.demo.domain.Dic" >
-        <result column="EN_TABLE_NAME" property="enTableName" jdbcType="VARCHAR" />
-        <result column="CN_TABLE_NAME" property="cnTableName" jdbcType="VARCHAR" />
-        <result column="EN_COL_NAME" property="enColName" jdbcType="VARCHAR" />
-        <result column="CN_COL_NAME" property="cnColName" jdbcType="VARCHAR" />
+    <resultMap id="BaseResultMap" type="com.example.demo.domain.Dic">
+        <result column="EN_TABLE_NAME" property="enTableName" jdbcType="VARCHAR"/>
+        <result column="CN_TABLE_NAME" property="cnTableName" jdbcType="VARCHAR"/>
+        <result column="EN_COL_NAME" property="enColName" jdbcType="VARCHAR"/>
+        <result column="CN_COL_NAME" property="cnColName" jdbcType="VARCHAR"/>
     </resultMap>
 
     <select id="selectByTableName" resultMap="BaseResultMap">

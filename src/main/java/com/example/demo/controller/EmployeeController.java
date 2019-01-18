@@ -27,7 +27,7 @@ public class EmployeeController {
 
     @ResponseBody
     @RequestMapping(value = "/selectAll")
-    public MessageResult selectAll(HttpSession session){
+    public MessageResult selectAll(HttpSession session) {
         MessageResult messageResult = new MessageResult();
         List<Employee> list = employeeService.selectAll();
         messageResult.setData(list);
@@ -36,10 +36,10 @@ public class EmployeeController {
 
     @ResponseBody
     @RequestMapping(value = "/download")
-    public MessageResult download(@RequestBody String[] ids){
+    public MessageResult download(@RequestBody String[] ids) {
         MessageResult messageResult = new MessageResult();
         List list = java.util.Arrays.asList(ids);
-       List<Employee> employeeList= employeeService.selectByIds(list);
+        List<Employee> employeeList = employeeService.selectByIds(list);
         return messageResult;
     }
 

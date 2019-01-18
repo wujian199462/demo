@@ -15,18 +15,23 @@
             {{allUser}}
         </el-col>
         <el-col :span="18" style="border: solid;height: 100%;">
-           <div style="    border: solid;position: fixed;top: 10px;height: 10%; width: 70%;">
-               {{head}}
-           </div>
+            <div style="    border: solid;position: fixed;top: 10px;height: 10%; width: 70%;">
+                {{head}}
+            </div>
             <div style="border: solid;position: absolute;top: 11%;height: 79%;width: 73%;">
-                <div id="chatInfo" v-html="messageBox" style="background: #f0f5ff;height: 100%;width: 100%;overflow-y:scroll">
-                        {{messageBox}}
+                <div id="chatInfo" v-html="messageBox"
+                     style="background: #f0f5ff;height: 100%;width: 100%;overflow-y:scroll">
+                    {{messageBox}}
                 </div>
             </div>
             <div style="border: solid;position: fixed;bottom: 7px;height: 8%;width: 70%;">
                 <el-row>
-                    <el-col :span="16"><el-input v-model="message" placeholder="请输入内容"></el-input></el-col>
-                    <el-col :span="4"><el-button type="info" plain @click="sendMessage">发送</el-button></el-col>
+                    <el-col :span="16">
+                        <el-input v-model="message" placeholder="请输入内容"></el-input>
+                    </el-col>
+                    <el-col :span="4">
+                        <el-button type="info" plain @click="sendMessage">发送</el-button>
+                    </el-col>
                     <el-col :span="4"></el-col>
                 </el-row>
             </div>

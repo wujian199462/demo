@@ -12,14 +12,16 @@ import java.security.SecureRandom;
 
 public class PBE {
     private static String src = "imooc";
-    public static void main(String[]args){
+
+    public static void main(String[] args) {
         jdkPEB();
     }
-    public static void jdkPEB(){
+
+    public static void jdkPEB() {
         try {
             //初始化盐
             SecureRandom random = new SecureRandom();
-            byte[]salt = random.generateSeed(8);
+            byte[] salt = random.generateSeed(8);
 
             //口令与密钥
             String password = "imooc";
@@ -28,16 +30,16 @@ public class PBE {
             Key key = factory.generateSecret(pbeKeySpec);
 
             //加密
-            PBEParameterSpec pbeParameterSpec = new PBEParameterSpec(salt,100);
+            PBEParameterSpec pbeParameterSpec = new PBEParameterSpec(salt, 100);
             Cipher cipher = Cipher.getInstance("PBEWITHMD5andDes");
-            cipher.init(Cipher.ENCRYPT_MODE,key,pbeParameterSpec);
-            byte [] resulet = cipher.doFinal(src.getBytes());
-            System.out.println("jdk pbe encrypt:"+ Base64.encodeBase64String(resulet));
+            cipher.init(Cipher.ENCRYPT_MODE, key, pbeParameterSpec);
+            byte[] resulet = cipher.doFinal(src.getBytes());
+            System.out.println("jdk pbe encrypt:" + Base64.encodeBase64String(resulet));
 
             //解密
-            cipher.init(Cipher.DECRYPT_MODE,key,pbeParameterSpec);
+            cipher.init(Cipher.DECRYPT_MODE, key, pbeParameterSpec);
             resulet = cipher.doFinal(resulet);
-            System.out.println("jdk pbe dncrypt:"+new String(resulet));
+            System.out.println("jdk pbe dncrypt:" + new String(resulet));
         } catch (Exception e) {
             e.printStackTrace();
         }

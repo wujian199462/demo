@@ -13,6 +13,7 @@ import java.util.Map;
 public interface UserDao {
     /**
      * 根据用户名查询注册是否重复
+     *
      * @param userName
      * @return
      */
@@ -24,6 +25,7 @@ public interface UserDao {
 
     /**
      * 组测用户
+     *
      * @param user
      * @return
      */

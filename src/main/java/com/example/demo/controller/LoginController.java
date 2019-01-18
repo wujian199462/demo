@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpSession;
 
 @Controller
-public class LoginController  {
-UserService userService ;
+public class LoginController {
+    UserService userService;
 
     @RequestMapping("/loginUI")
     public String index() {
@@ -22,8 +22,8 @@ UserService userService ;
     }
 
     @ResponseBody
-    @RequestMapping(value = "/test",method = RequestMethod.GET)
-    public User login(@RequestBody User record){
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    public User login(@RequestBody User record) {
         record.setPassword("jerry");
         record.setPassword("12");
         User user = userService.selectUserByUserNameAndPassword(record);

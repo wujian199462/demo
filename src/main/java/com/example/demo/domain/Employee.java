@@ -1,12 +1,9 @@
 package com.example.demo.domain;
 
-import org.springframework.format.annotation.DateTimeFormat;
+import java.math.BigDecimal;
+import java.util.Date;
 
-import java.io.Serializable;
-import java.sql.Date;
-
-
-public class Employee implements Serializable {
+public class Employee {
     private String id;
 
     private String name;
@@ -16,10 +13,10 @@ public class Employee implements Serializable {
     private String sex;
 
     private String adress;
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+
     private Date birthday;
 
-    private Long salary;
+    private BigDecimal salary;
 
     public String getId() {
         return id;
@@ -69,11 +66,11 @@ public class Employee implements Serializable {
         this.birthday = birthday;
     }
 
-    public Long getSalary() {
+    public BigDecimal getSalary() {
         return salary;
     }
 
-    public void setSalary(Long salary) {
+    public void setSalary(BigDecimal salary) {
         this.salary = salary;
     }
 }

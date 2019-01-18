@@ -24,20 +24,19 @@ public class UserController {
     private DicService dicService;
 
 
-
     @ResponseBody
     @RequestMapping(value = "/login")
-    public MessageResult login(@RequestBody User record,HttpSession session){
+    public MessageResult login(@RequestBody User record, HttpSession session) {
         MessageResult messageResult = new MessageResult();
         User user = userService.selectUserByUserNameAndPassword(record);
-        if(user!=null){
+        if (user != null) {
             messageResult.setStatus(true);
             messageResult.setData(user);
-            session.setAttribute("username",user.getUserName());
+            session.setAttribute("username", user.getUserName());
             session.setMaxInactiveInterval(30000);//以秒为单位
             String a = (String) session.getAttribute("username");
             System.out.println(a);
-        }else{
+        } else {
             messageResult.setStatus(false);
         }
         return messageResult;
@@ -46,13 +45,13 @@ public class UserController {
 
     @ResponseBody
     @RequestMapping(value = "/register")
-    public MessageResult register(@RequestBody User record){
+    public MessageResult register(@RequestBody User record) {
         MessageResult messageResult = new MessageResult();
         //判断用户名是否存在
-        if(userService.selectUserByName(record.getUserName())!=null){
+        if (userService.selectUserByName(record.getUserName()) != null) {
             messageResult.setStatus(false);
             messageResult.setMessage("用户名已存在");
-        }else {
+        } else {
             int i = userService.register(record);
             if (i != 0) {
                 messageResult.setStatus(true);
@@ -71,18 +70,18 @@ public class UserController {
         MessageResult messageResult = new MessageResult();
 
         List<User> list = userService.selectAll();
-        List<Dic> listTitle =dicService.selectByTableName("user");    //查询字典值中的中文列名作为表头
-        String [] titleName = new String[listTitle.size()];  //将查询到的表头放到String[] 数组中
-        for(int i=0;i<listTitle.size();i++){
+        List<Dic> listTitle = dicService.selectByTableName("user");    //查询字典值中的中文列名作为表头
+        String[] titleName = new String[listTitle.size()];  //将查询到的表头放到String[] 数组中
+        for (int i = 0; i < listTitle.size(); i++) {
             titleName[i] = listTitle.get(i).getCnColName();
         }
 
-       int status =  Excle.downloadAllClassmate(list,titleName,"信息表","D://Excel","信息表.xls");
+        int status = Excle.downloadAllClassmate(list, titleName, "信息表", "D://Excel", "信息表.xls");
 
-        if(status==1){
+        if (status == 1) {
             messageResult.setStatus(true);
             messageResult.setMessage("下载成功！");
-        }else{
+        } else {
             messageResult.setStatus(false);
             messageResult.setMessage("下载失败！");
         }

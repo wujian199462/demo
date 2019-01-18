@@ -10,9 +10,9 @@ import javax.crypto.spec.DESKeySpec;
 import java.security.Key;
 
 //des对称算法
-public  class DES {
+public class DES {
 
-    public static void jdkDES(String input){
+    public static void jdkDES(String input) {
         try {
             //生成KEY
             KeyGenerator keyGenerator = KeyGenerator.getInstance("DES");
@@ -23,18 +23,18 @@ public  class DES {
             //KEY转换
             DESKeySpec desKeySpec = new DESKeySpec(bytesKey);
             SecretKeyFactory factory = SecretKeyFactory.getInstance("DES");
-            Key convertSecretKey =factory.generateSecret(desKeySpec);
+            Key convertSecretKey = factory.generateSecret(desKeySpec);
 
             //加密
             Cipher cipher = Cipher.getInstance("DES/ECB/PKCS5Padding");
-            cipher.init(Cipher.ENCRYPT_MODE,convertSecretKey);
+            cipher.init(Cipher.ENCRYPT_MODE, convertSecretKey);
             byte[] result = cipher.doFinal(input.getBytes());
-            System.out.println("jdk des encrype:"+ Hex.encodeHexString(result));
+            System.out.println("jdk des encrype:" + Hex.encodeHexString(result));
 
             //解密
-            cipher.init(Cipher.DECRYPT_MODE,convertSecretKey);
+            cipher.init(Cipher.DECRYPT_MODE, convertSecretKey);
             result = cipher.doFinal(result);
-            System.out.println("jdk des dencrype:"+new String(result));
+            System.out.println("jdk des dencrype:" + new String(result));
         } catch (Exception e) {
             e.printStackTrace();
         }

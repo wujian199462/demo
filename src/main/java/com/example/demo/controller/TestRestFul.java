@@ -11,13 +11,13 @@ import java.util.Map;
 
 
 @RestController
-@RequestMapping(value = "/restFul",method = RequestMethod.GET)
+@RequestMapping(value = "/restFul", method = RequestMethod.GET)
 public class TestRestFul {
 
 
     @RequestMapping("test")
-    public JSONObject test(String a){
-        Map<String,Object> map = new HashMap<String,Object>();
+    public JSONObject test(String a) {
+        Map<String, Object> map = new HashMap<String, Object>();
         byte[] msg = RSA.RSAEcode("岑永威你是猪 吗?");
         map.put("rsaPublicKey", RSA.getPUBLICKEY());
         map.put("msg", msg);

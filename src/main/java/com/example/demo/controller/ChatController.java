@@ -22,7 +22,7 @@ public class ChatController {
 
     @ResponseBody
     @RequestMapping(value = "/getChatUser")
-    public MessageResult getChatUser(HttpSession session){
+    public MessageResult getChatUser(HttpSession session) {
         MessageResult messageResult = new MessageResult();
         String userName = (String) session.getAttribute("username");
         List<User> list = chatService.getChatUser(userName);

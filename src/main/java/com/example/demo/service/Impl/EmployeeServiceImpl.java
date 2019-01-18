@@ -16,10 +16,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
     private EmployeeMapper employeeMapper;
+
     @Override
     public List<Employee> selectAll() {
 
-        return employeeMapper.selectAll();
+        return null;
     }
 
     @Override

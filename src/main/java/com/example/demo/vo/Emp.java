@@ -5,7 +5,7 @@ import com.example.demo.domain.Employee;
 import java.util.List;
 
 public class Emp {
-   private  List<Employee> list;
+    private List<Employee> list;
 
     public List<Employee> getList() {
         return list;

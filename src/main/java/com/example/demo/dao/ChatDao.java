@@ -12,6 +12,7 @@ import java.util.List;
 public interface ChatDao {
     /**
      * 获取所有的聊天用户
+     *
      * @return
      */
     List<User> getChatUser(String userName);

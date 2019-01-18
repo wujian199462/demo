@@ -13,13 +13,14 @@ import java.util.Objects;
 
 public class DH {
     private static String src = "imooc";
-    public static void main(String[]args){
+
+    public static void main(String[] args) {
         jdkDH();
     }
 
-    public static void jdkDH(){
+    public static void jdkDH() {
         try {
-             //1.初始化发送方密钥
+            //1.初始化发送方密钥
             KeyPairGenerator senderKeyPairGenerator = KeyPairGenerator.getInstance("DH");
             senderKeyPairGenerator.initialize(512);
             KeyPair senderKeyPair = senderKeyPairGenerator.generateKeyPair();
@@ -29,7 +30,7 @@ public class DH {
             KeyFactory receiverKeyFactory = KeyFactory.getInstance("DH");
             X509EncodedKeySpec x509EncodedKeySpec = new X509EncodedKeySpec(senderPublicKeyEnc);
             PublicKey reveiverPublicKey = receiverKeyFactory.generatePublic(x509EncodedKeySpec);//接收方的key
-            DHParameterSpec dhParameterSpec = ((DHPublicKey)reveiverPublicKey).getParams();
+            DHParameterSpec dhParameterSpec = ((DHPublicKey) reveiverPublicKey).getParams();
             KeyPairGenerator receiverKeyPariGenerator = KeyPairGenerator.getInstance("DH");
             receiverKeyPariGenerator.initialize(dhParameterSpec);
             KeyPair receiverKeypair = receiverKeyPariGenerator.generateKeyPair();
@@ -39,7 +40,7 @@ public class DH {
             //3.密钥构建
             KeyAgreement receiverKeyAgreement = KeyAgreement.getInstance("DH");
             receiverKeyAgreement.init(receiverPrivateKey);
-            receiverKeyAgreement.doPhase(reveiverPublicKey,true);
+            receiverKeyAgreement.doPhase(reveiverPublicKey, true);
             SecretKey receiverDesKey = receiverKeyAgreement.generateSecret("DES");
 
             KeyFactory senderKeyFactory = KeyFactory.getInstance("DH");
@@ -47,24 +48,24 @@ public class DH {
             PublicKey senderPublicKey = senderKeyFactory.generatePublic(x509EncodedKeySpec);
             KeyAgreement senderKeyAgreement = KeyAgreement.getInstance("DH");
             senderKeyAgreement.init(senderKeyPair.getPrivate());
-            senderKeyAgreement.doPhase(senderPublicKey,true);
+            senderKeyAgreement.doPhase(senderPublicKey, true);
 
             //发送方的本地密钥
             SecretKey senderDesKey = senderKeyAgreement.generateSecret("DES");
-            if(Objects.equals(receiverDesKey,senderDesKey)){
+            if (Objects.equals(receiverDesKey, senderDesKey)) {
                 System.out.println("双方密钥相同");
             }
 
             //4.加密
             Cipher cipher = Cipher.getInstance("DES");
-            cipher.init(Cipher.ENCRYPT_MODE,senderDesKey);
+            cipher.init(Cipher.ENCRYPT_MODE, senderDesKey);
             byte[] result = cipher.doFinal(src.getBytes());
-            System.out.println("jdk dh eccrypt:"+Base64.encodeBase64String(result));
+            System.out.println("jdk dh eccrypt:" + Base64.encodeBase64String(result));
 
             //解码
-            cipher.init(Cipher.DECRYPT_MODE,receiverDesKey);
-             result = cipher.doFinal(result);
-            System.out.println("jdk dh eccrypt:"+new String(result));
+            cipher.init(Cipher.DECRYPT_MODE, receiverDesKey);
+            result = cipher.doFinal(result);
+            System.out.println("jdk dh eccrypt:" + new String(result));
 
         } catch (Exception e) {
             e.printStackTrace();

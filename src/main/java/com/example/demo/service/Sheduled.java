@@ -6,8 +6,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class Sheduled {
 
-   static int i =0;
-   // @Scheduled(cron = "*/5 * * * * *")
+    static int i = 0;
+    // @Scheduled(cron = "*/5 * * * * *")
     /*
     public static void a(){
         int count = 0;

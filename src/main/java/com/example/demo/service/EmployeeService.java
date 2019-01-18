@@ -9,10 +9,11 @@ public interface EmployeeService {
 
     /**
      * 获取所有的聊天用户
+     *
      * @return
      */
     List<Employee> selectAll();
 
-    List<Employee> selectByIds(List<Employee>ids);
+    List<Employee> selectByIds(List<Employee> ids);
 
 }

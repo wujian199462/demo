@@ -10,15 +10,15 @@
     <script src="../../js/home/home.js"></script>
 </head>
 <body>
-    <div id="right">
+<div id="right">
 
-        <div id="chart1" class="echart_div">
+    <div id="chart1" class="echart_div">
 
-        </div>
-        <div id="chart2" class="echart_div">
-
-        </div>
     </div>
+    <div id="chart2" class="echart_div">
+
+    </div>
+</div>
 </body>
 <!--顺序很重要-->
 <script src="../../js/home/echarts.js"></script>
@@ -30,13 +30,11 @@
 <script src="../../js/home/jQuery.js"></script>
 
 <script>
-    var vmright =new Vue({
-        el:'#right',
-        data:{
-
-        },
-        methods:{
-            fechart1:function () {
+    var vmright = new Vue({
+        el: '#right',
+        data: {},
+        methods: {
+            fechart1: function () {
                 var myChart = echarts.init(document.getElementById('chart1'));
                 var option = {
                     title: {
@@ -46,7 +44,7 @@
                         trigger: 'axis'
                     },
                     legend: {
-                        data:['款数','图片张数']
+                        data: ['款数', '图片张数']
                     },
                     grid: {
                         left: '3%',
@@ -62,23 +60,23 @@
                     xAxis: {
                         type: 'category',
                         boundaryGap: false,
-                        data: ['6月','7月','8月','9月','10月','11月','12月']
+                        data: ['6月', '7月', '8月', '9月', '10月', '11月', '12月']
                     },
                     yAxis: {
                         type: 'value'
                     },
                     series: [
                         {
-                            name:'款数',
-                            type:'line',
+                            name: '款数',
+                            type: 'line',
                             stack: '总量',
-                            data:[26, 49, 77, 76, 80, 49, 72]
+                            data: [26, 49, 77, 76, 80, 49, 72]
                         },
                         {
-                            name:'图片张数',
-                            type:'line',
+                            name: '图片张数',
+                            type: 'line',
                             stack: '总量',
-                            data:[99, 160, 370, 379, 372, 208.5, 322]
+                            data: [99, 160, 370, 379, 372, 208.5, 322]
                         },
 
                     ]
@@ -86,7 +84,7 @@
                 ;
                 myChart.setOption(option);
             },
-            fechart2:function () {
+            fechart2: function () {
                 var myChart = echarts.init(document.getElementById('chart2'));
                 option = {
                     xAxis: {

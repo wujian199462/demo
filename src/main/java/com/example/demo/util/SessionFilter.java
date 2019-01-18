@@ -40,10 +40,10 @@ public class SessionFilter implements Filter {
         String login = config.getInitParameter("login");
         String register = config.getInitParameter("register");
         String css = config.getInitParameter("css"); // 记录.css和.js文件不过滤
-        String js  = config.getInitParameter("js");
-        String png =config.getInitParameter("png");
-        String html  = config.getInitParameter("html");
-        String restFul  = config.getInitParameter("restFul");
+        String js = config.getInitParameter("js");
+        String png = config.getInitParameter("png");
+        String html = config.getInitParameter("html");
+        String restFul = config.getInitParameter("restFul");
 
         String encoding = config.getInitParameter("encoding");
 
@@ -71,7 +71,7 @@ public class SessionFilter implements Filter {
 
             }
         }*/
-        if (uri.contains(restFul)||uri.contains(html)||uri.contains(loginUI) ||uri.contains(login)|| uri.contains(css)||uri.contains(js)||uri.contains(png)||uri.contains(register)) {  //如果是登陆界面或者是.css,.html和.js结尾的放行
+        if (uri.contains(restFul) || uri.contains(html) || uri.contains(loginUI) || uri.contains(login) || uri.contains(css) || uri.contains(js) || uri.contains(png) || uri.contains(register)) {  //如果是登陆界面或者是.css,.html和.js结尾的放行
 
             HttpSession session = request.getSession();
             // 请求的登录，放行
@@ -80,7 +80,7 @@ public class SessionFilter implements Filter {
         } else {
             if (request.getSession().getAttribute("username") == null) {
                 // 重定向到登录页面
-              //  response.sendRedirect(request.getContextPath() + loginUI);
+                //  response.sendRedirect(request.getContextPath() + loginUI);
                 PrintWriter out = response.getWriter();
                 out.write("<script>window.parent.location.href='loginUI'</script>");
             } else {

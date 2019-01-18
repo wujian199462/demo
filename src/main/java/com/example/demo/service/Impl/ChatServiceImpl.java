@@ -17,6 +17,7 @@ public class ChatServiceImpl implements ChatService {
 
     @Autowired
     private ChatDao chatDao;
+
     @Override
     public List<User> getChatUser(String userName) {
 
